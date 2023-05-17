@@ -73,7 +73,7 @@ class Command(BaseCommand):
 
         the_journey = NovelModel.objects.create(
            title='The Journey',
-           overview='the vampire lord of the nightmare land. But with only a captive Vistani woman and an untrustworthy ghost for allies',
+           overview='the vampire lord of the nightmare land. But with only a captive of the Vistani woman and an untrustworthy of the ghost for allies',
         )
         the_journey.save()
         the_journey.genre.add(fantacy, horror, romance)
@@ -111,8 +111,20 @@ class Command(BaseCommand):
 
         ChapterModel.objects.create(
             title='Chapter 3',
-            book=young_sheldon,
+            book=knight_of_roses,
             content='namkakmakk hbhb  bcjbsjhcb sbjscbj jbnsjkcnjks' 
+        )
+
+        ChapterModel.objects.create(
+            title='Chapter 1',
+            book=the_life,
+            content='namkakmakknjmnjnjnj nk kkkk' 
+        )
+
+        ChapterModel.objects.create(
+            title='Chapter 1',
+            book=the_journey,
+            content='namkakmakknjmnjnjnj' 
         )
 
         self.stdout.write(self.style.SUCCESS('Successfully populated the database.'))

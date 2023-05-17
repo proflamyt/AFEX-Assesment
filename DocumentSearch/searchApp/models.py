@@ -13,8 +13,7 @@ class NovelModel(models.Model):
     weekly_featured = models.BooleanField(default=False)
     special_featured = models.BooleanField(default=False)
     published = models.BooleanField(default=True)
-    date_uploaded = models.DateTimeField(
-        null=True, blank=True, auto_now_add=True)
+    date_uploaded = models.DateTimeField(auto_now_add=True)
     
 
     def __str__(self) -> str:

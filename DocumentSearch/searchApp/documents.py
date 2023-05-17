@@ -1,7 +1,10 @@
 from elasticsearch_dsl import Index
-from django_elasticsearch_dsl import Document, fields, registries
-from .models import NovelModel
 from elasticsearch_dsl.analysis import analyzer, token_filter
+
+from django_elasticsearch_dsl import Document, fields, registries
+
+from .models import NovelModel
+
 
 my_analyzer = analyzer(
     'my_analyzer',
@@ -25,34 +28,33 @@ class NovelDocument(Document):
         'pk': fields.IntegerField(),
     })
     genre = fields.ObjectField(properties={
-        'id': fields.IntegerField(),
         'name': fields.TextField(),
     
     })
     authors = fields.ObjectField(properties={
         'id': fields.IntegerField(),
-        'username': fields.TextField(analyzer=my_analyzer),
+        'username': fields.TextField(),
     
     })
 
     class Index:
         name = 'novels'
-        settings = {'number_of_shards': 1,
+        settings = {
+                    'number_of_shards': 1,
                     'number_of_replicas': 0,
-                    "index" : {
-        "similarity" : {
-          "default" : {
-            "type" : "BM25",
-            "b": 0,
-            "k1": 10
-          }
-        }
-    }
-  }
+                    'index' : {
+                        "similarity" : {
+                            "default" : {
+                                "type" : "BM25",
+                                "b": 0,
+                                "k1": 10
+                            }
+                        }
+                }
+            }
                     
         
 
     class Django:
         model = NovelModel
-        fields = [
-        ]
+        fields = []

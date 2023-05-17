@@ -1,6 +1,8 @@
 from django_elasticsearch_dsl_drf.serializers import DocumentSerializer
+
 from .documents import NovelDocument
 from .models import ChapterModel
+
 from rest_framework import serializers
 
 
@@ -8,7 +10,7 @@ from rest_framework import serializers
 class ChapterSerializer(serializers.ModelSerializer):
     class Meta:
         model = ChapterModel
-        fields = ['date_uploaded', 'title']
+        fields = ['title', 'id']
     
         
 
@@ -24,6 +26,4 @@ class NovelDocumentSerializer(DocumentSerializer):
             'overview',
             'genre',
             'authors',
-            'chapters'
-            
-        )
+            'chapters')

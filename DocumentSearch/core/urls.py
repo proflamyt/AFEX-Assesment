@@ -21,3 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('novels/', include('searchapp.urls'))
 ]
+
+handler404 = 'core.utils.views.error_404'
+handler500 = 'core.utils.views.error_500'

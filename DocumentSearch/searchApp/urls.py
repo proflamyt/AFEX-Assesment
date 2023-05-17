@@ -4,5 +4,5 @@ from .views import NovelDocumentView
 
 urlpatterns = [
 
-    path('search', NovelDocumentView.as_view())
+    path('search', NovelDocumentView.as_view(), name='novel-search')
 ]
