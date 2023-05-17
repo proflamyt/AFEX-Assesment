@@ -65,7 +65,7 @@ docker-compose up -d
 # Run Search 
 
 ```
-curl http://127.0.0.1:8000/novels/search?q='of the'
+curl http://127.0.0.1:8000/novels/search?q='of the' -H 'Content-Type: application/json'
 ```
 
 ```json
