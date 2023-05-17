@@ -45,11 +45,13 @@ class NovelDocumentView(PaginatedElasticSearchAPIView):
 
     def generate_q_expression(self, query):
         return Q(
-                'multi_match', query=query,
+                'multi_match', query=query, 
+                type="best_fields", tie_breaker=0.3,
                 fields=[
-                    'title',
+                #    
                     'overview',
-                    'authors__username'
+                    'authors.username'
+                    'title',
                 ], fuzziness='auto')
 
 

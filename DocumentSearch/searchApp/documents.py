@@ -38,7 +38,18 @@ class NovelDocument(Document):
     class Index:
         name = 'novels'
         settings = {'number_of_shards': 1,
-                    'number_of_replicas': 0}
+                    'number_of_replicas': 0,
+                    "index" : {
+        "similarity" : {
+          "default" : {
+            "type" : "BM25",
+            "b": 0,
+            "k1": 10
+          }
+        }
+    }
+  }
+                    
         
 
     class Django:

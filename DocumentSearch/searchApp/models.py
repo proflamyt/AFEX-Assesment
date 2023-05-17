@@ -17,10 +17,6 @@ class NovelModel(models.Model):
         null=True, blank=True, auto_now_add=True)
     
 
-    class Meta():
-        ordering = ["-date_uploaded"]
-
-
     def __str__(self) -> str:
         return self.title
     
@@ -30,11 +26,10 @@ class ChapterModel(models.Model):
     title = models.CharField(max_length=100, blank=True, null=True)
     book = models.ForeignKey(NovelModel, on_delete=models.CASCADE, related_name='chapters', null=True,)
     content = models.TextField(null=True)
-    date_uploaded = models.DateTimeField(
-        null=True, blank=True, auto_now_add=True)
+    date_uploaded = models.DateTimeField(auto_now_add=True)
     
     def __str__(self) -> str:
-        return self.title
+        return f"{self.book.title}:{self.title} "
     
 
 
