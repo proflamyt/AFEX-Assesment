@@ -18,7 +18,7 @@ class NovelDocumentViewTest(TestCase):
         """
         populating database with test data
         """
-        call_command('populate_db')
+       # call_command('populate_db')
         self.factory = RequestFactory()
         self.query = {'q': "of the"} 
         self.url = reverse('novel-search')
