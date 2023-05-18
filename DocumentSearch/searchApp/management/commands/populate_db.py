@@ -3,6 +3,13 @@ from django.core.management.base import BaseCommand
 
 from searchapp.models import Genre, NovelModel, ChapterModel
 
+from dotenv import load_dotenv
+from os import getenv, path
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
+load_dotenv("/etc/secrets/.env")
+
 
 class Command(BaseCommand):
     help = 'Populates the database with some testing data.'
@@ -13,6 +20,14 @@ class Command(BaseCommand):
         if User.objects.filter(username="test_user").exists():
             self.stdout.write(self.style.SUCCESS('Database has already been populated. Cancelling the operation.'))
             return
+        
+        # Create admin
+        User.objects.create_superuser(
+                username= getenv('admin_user'),
+                password= getenv('admin_pass')
+            )
+        
+
 
         # Create users
         mike = User.objects.create_user(username='author1', password='really_strong_password123')
