@@ -28,7 +28,7 @@ SECRET_KEY = getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = getenv('HOSTS')
+ALLOWED_HOSTS = [getenv('HOSTS')]
 
 
 # Application definition
