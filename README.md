@@ -54,7 +54,7 @@ $ python manage.py runserver
 
 
 
-# Activate Using Docker Compose
+# Or Activate Using Docker Compose
 
 ```
 docker-compose up -d

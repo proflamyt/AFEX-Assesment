@@ -135,7 +135,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ELASTICSEARCH_DSL = {
     'default': {
-        'hosts': 'localhost:9200'
+        'cloud_id': getenv('cloud_id'),
+        'api_key': (getenv('apikey_id'), getenv('apikey_key'))
     },
 }
 
