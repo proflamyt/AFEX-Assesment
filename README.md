@@ -1,4 +1,4 @@
-# AFEX-Assesment
+# Novel Search Engine
 
 A Django Novel search engine that allows users to efficiently search for novels based on user query using elasticsearch.
 It uses the BM25 for similarity ranking (relevancy), ranks the result based on the frequency of the query in the content and uses an english language stemmer for stemming to ensure the search engine finds documents that contain variations of the query keywords. It uses the multi match query to match texts across multiple fields of the novel which are :
